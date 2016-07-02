@@ -1,0 +1,17 @@
+{
+  "name": "keyify",
+  "description": "JavaScript utility to convert a nested data structure to use object keys",
+  "version": "1.0.0",
+  "keywords": [
+    "tree",
+    "recursion",
+    "nested",
+    "data structure",
+    "lodash"
+  ],
+  "dependencies": {
+    "lodash": "4.13.1"
+  },
+  "repository": "DerFlatulator/keyify",
+  "license": "MIT"
+}
