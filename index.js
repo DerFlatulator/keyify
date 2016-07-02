@@ -1,16 +1,16 @@
  
-import {property, zipObject, omit, isNil} from 'lodash'
+import {property, zipObject, omit, assign} from 'lodash'
 
 export default function keyify(arr, {
     nameKey = 'name',
     childrenKey = 'children',
-    omitName = false
+    omitProps = ['name']
 } = {}) {
-    return isNil(arr) ? {} : zipObject(
+    return (arr == null) ? {} : zipObject(
         arr.map(property(nameKey)),
         arr.map(property(childrenKey))
            .map(subArr => keyify(subArr, arguments[1]))
-           .map((obj, i) => _.assign(
-               omit(arr[i], childrenKey, !omitName || nameKey),
+           .map((obj, i) => assign(
+               omit(arr[i], childrenKey, ...omitProps),
                obj)))
 }
